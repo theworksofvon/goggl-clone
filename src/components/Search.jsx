@@ -6,7 +6,7 @@ import { useResultContext } from "../contexts/ResultContextProvider";
 export const Search = () => {
   const [text, setText] = useState("");
   const { setSearchTerm } = useResultContext();
-  const { debouncedValue } = useDebounce(text, 300);
+  const [debouncedValue] = useDebounce(text, 300);
 
   useEffect(() => {
     if (debouncedValue) setSearchTerm(debouncedValue);
@@ -21,9 +21,9 @@ export const Search = () => {
         placeholder="Search Soterica..."
         onChange={(e) => setText(e.target.value)}
       />
-      {!text && (
+      {text !== "" && (
         <button
-          type="button"
+          type="submit"
           className="absolute top-1.5 right-4 text-2xl text-gray-500"
           onClick={() => setText("")}
         >
