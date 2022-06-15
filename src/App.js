@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { Routes } from "./components/Routes";
 
 function App() {
+  // Sets the dark theme layout
   const [darkTheme, setDarkTheme] = useState(false);
 
   return (
